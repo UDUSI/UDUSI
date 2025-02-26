@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI and UDUNITS2 units</title>
+    <link rel="stylesheet" href="css/navigation.css">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="title-container">
+            <span class="main-title">SI and UDUNITS2 units information:</span>
+            <span class="subtitle" id="page-subtitle">Loading...</span>
+            <button id="provenance-btn" class="provenance-button">
+                <span class="info-icon">ℹ</span>
+                Provenance
+            </button>
+        </div>
+    </div>
+
+    <div id="provenance-panel" class="provenance-panel">
+        <div class="provenance-content">
+            <div class="provenance-header">
+                <h3>Data Provenance</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div id="provenance-text">
+                No provenance information available.
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <nav class="nav-column">
+            <div class="nav-title">Unit Categories</div>
+            <ul class="nav-list">
+                <div class="nav-subtitle">SI</div>
+                <li><button data-page="pages/prefixes.html">SI Prefixes</button></li>
+                <li><button data-page="pages/constants.html">SI Constants</button></li>
+                <li><button data-page="pages/base-units.html">SI Base Units</button></li>
+                <li><button data-page="pages/special-units.html">SI Special Units</button></li>
+                <li><button data-page="pages/nonsi-units.html">Non-SI Units</button></li>
+                <div class="nav-subtitle">UDUNITS2 additions</div>
+                <li><button data-page="pages/udu-common-units.html">Common Units</button></li>
+                <li><br/><br/></li>
+                <li><button data-page="pages/download-page.html">Download xml</button></li>
+                <div class="nav-subtitle"></div>
+                <li><br/><button data-page="pages/about-page.html" class="active">About UDUSI</button></li>
+            </ul>
+        </nav>
+
+        <div class="content-area">
+            <div class="loading">Loading...</div>
+            <iframe id="content-container"></iframe>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+    <div class="footer">
+        <div class="footer-content">
+            Copyright © 2025 &bull; Lars Bärring  &bull; All information on these webpages are made available under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a> Creative Commons Attribution 4.0 International License.
+        </div>
+    </div>
+
+</body>
+</html>
