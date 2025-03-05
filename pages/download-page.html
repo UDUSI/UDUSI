@@ -9,28 +9,56 @@
 <body>
     <h1>Download UDUNITS2 Files</h1>
 
-    <h2>THIS IS A TEST AND DEVELOPMENT PUBLICATION</h2>
-    <h3>HAVE NO EXPECTATIONS (NONE AT ALL)</h3>
-    <div class="download-section">
-        <div class="download-title">UDUNITS2 XML Definition Files</div>
-        <div class="download-description">
-            These files contain the complete XML definitions for the UDUNITS2 system. They can be used in software applications that support the UDUNITS2 library for unit conversions and calculations.
-        </div>
-        <a href="../downloads/udusi.zip" class="download-link" data-file-id="udusi">Download zip file containing separate xml files</a>
-        <div class="file-info" id="udusi-info"></div>
+    <h2 class="warning-headline">THIS IS A TEST AND DEVELOPMENT PUBLICATION</h2>
+    <h3 class="warning-headline">HAVE NO EXPECTATIONS (NONE AT ALL)</h3>
+
+    <div class="intro-section">
+        <p>
+            The XML files containing UDUNITS2 unit definitions are available for download as zip archives.
+            Choose from two options based on your needs:
+        </p>
     </div>
 
     <div class="download-section">
-        <div class="download-title">Extended Units Package</div>
+        <div class="download-title">Option 1: Separate XML Files</div>
         <div class="download-description">
-            This package contains additional unit definitions that extend the base UDUNITS2 system with specialized units for meteorology, oceanography, and climate science applications.
+            This archive contains the complete XML definitions for the UDUNITS2 system as separate files.
+            After extracting the archive, use <code>udusi.xml</code> as the main file with UDUNITS2.
+            This file includes the other XML files in the correct order through XML includes.
         </div>
-        <a href="../downloads/udusi-combined.zip" class="download-link" data-file-id="udusi-combined">Download zip file containing the combined xml</a>
-        <div class="file-info" id="udusi-combined-info"></div>
+        <a href="../downloads/udusi.zip" class="download-link" data-file-id="udusi">Download Separate Files</a>
+        <div class="file-info" id="udusi-info">Last updated: March 2025</div>
+    </div>
+
+    <div class="download-section">
+        <div class="download-title">Option 2: Single Unified XML File</div>
+        <div class="download-description">
+            This archive contains all UDUNITS2 unit definitions combined into a single XML file.
+            This option may be simpler to use and requires managing fewer files.
+        </div>
+        <a href="../downloads/udusi-combined.zip" class="download-link" data-file-id="udusi-combined">Download Unified File</a>
+        <div class="file-info" id="udusi-combined-info">Last updated: March 2025</div>
+    </div>
+
+    <div class="usage-section">
+        <h2>Usage Information</h2>
+        <p>
+            Both options provide the same unit definitions - the difference is only in file organization.
+            For either option, you'll need to:
+        </p>
+        <ol>
+            <li>Download and extract the zip archive to your preferred location</li>
+            <li>Point your UDUNITS2 installation to either <code>udusi.xml</code> (for separate files) or the single unified file</li>
+            <li>Refer to the <a href="https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/" target="_blank">UDUNITS2 documentation</a> for configuration details</li>
+        </ol>
     </div>
 
     <div class="note-section">
-        <strong>Note:</strong> These files are provided under the Creative Commons Attribution 4.0 International License (CC-BY-4.0). Please refer to the license terms included in each package for usage guidelines.
+        <h3>License</h3>
+        <p>
+            These files are provided under the Creative Commons Attribution 4.0 International License (CC-BY-4.0).
+            See the license terms included in each package for complete usage guidelines.
+        </p>
     </div>
 
     <!-- Hidden provenance data that will be used by the main page -->
