@@ -15,16 +15,17 @@
     <div class="intro-section">
         <p>
             The XML files containing UDUNITS2 unit definitions are available for download as zip archives.
-            Choose from two options based on your needs:
+            Choose from two options below based on your needs. Option <b>1</b> provides XML definitions for the
+            UDUNITS2 system as separate files that mirror the different source materials. Option <b>2</b> combines
+            all information into a single XML file. If you're not specifically interested in tracing the
+            sources of information, this option may be simpler to use and requires managing fewer files.
         </p>
     </div>
 
     <div class="download-section">
         <div class="download-title">Option 1: Separate XML Files</div>
         <div class="download-description">
-            This archive contains the complete XML definitions for the UDUNITS2 system as separate files.
-            After extracting the archive, use <code>udusi.xml</code> as the main file with UDUNITS2.
-            This file includes the other XML files in the correct order through XML includes.
+            The main file <code>udusi.xml</code> provide includes the other XML files in the correct order through XML include statements.
         </div>
         <a href="../downloads/udusi.zip" class="download-link" data-file-id="udusi">Download Separate Files</a>
         <div class="file-info" id="udusi-info">Last updated: March 2025</div>
@@ -33,8 +34,7 @@
     <div class="download-section">
         <div class="download-title">Option 2: Single Unified XML File</div>
         <div class="download-description">
-            This archive contains all UDUNITS2 unit definitions combined into a single XML file.
-            This option may be simpler to use and requires managing fewer files.
+            All information combined into the file <code>udusi-combined.xml</code>.
         </div>
         <a href="../downloads/udusi-combined.zip" class="download-link" data-file-id="udusi-combined">Download Unified File</a>
         <div class="file-info" id="udusi-combined-info">Last updated: March 2025</div>
@@ -48,7 +48,7 @@
         </p>
         <ol>
             <li>Download and extract the zip archive to your preferred location</li>
-            <li>Point your UDUNITS2 installation to either <code>udusi.xml</code> (for separate files) or the single unified file</li>
+            <li>Point your UDUNITS2 installation to either <code>udusi.xml</code> (option 1) or <code>udusi-combined.xml</code> (option 2).</li>
             <li>Refer to the <a href="https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/" target="_blank">UDUNITS2 documentation</a> for configuration details</li>
         </ol>
     </div>
