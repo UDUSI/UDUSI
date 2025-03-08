@@ -5,6 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About UDUSI</title>
     <link rel="stylesheet" href="../css/about-page.css">
+    <style>
+        /* Modal popup styles */
+        .modal-btn {
+            background-color: #4a90e2;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .modal-btn:hover {
+            background-color: #2c5282;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 700px;
+            border-radius: 5px;
+            position: relative;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal-btn:hover {
+            color: #333;
+        }
+
+        .license-text {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
     <h1>About UDUSI</h1>
@@ -42,12 +108,53 @@
         </p>
         <p>
             <strong>License:</strong> UDUNITS2 is released under the <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause License</a>.
+            <button class="modal-btn" id="openLicenseBtn">View Full License</button>
         </p>
     </div>
 
     <div class="content-section">
         <h2>Contact</h2>
         <!-- Contact information intentionally left empty -->
+    </div>
+
+    <!-- License Modal -->
+    <div id="licenseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+            <h2>UDUNITS2 License</h2>
+            <div class="license-text">Copyright 2014 University Corporation for Atmospheric Research and contributors.
+All rights reserved.
+
+This software was developed by the Unidata Program Center of the
+University Corporation for Atmospheric Research (UCAR)
+<http://www.unidata.ucar.edu>.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+   1) Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2) Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+   3) Neither the names of the development group, the copyright holders, nor the
+      names of contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+   4) This license shall terminate automatically and you may no longer exercise
+      any of the rights granted to you by this license as of the date you
+      commence an action, including a cross-claim or counterclaim, against
+      the copyright holders or any contributor alleging that this software
+      infringes a patent. This termination provision shall not apply for an
+      action alleging patent infringement by combinations of this software with
+      other software or hardware.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE CONTRIBUTORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE SOFTWARE.</div>
+        </div>
     </div>
 
     <!-- Hidden provenance data that will be used by the main page -->
@@ -58,5 +165,26 @@
             It includes links to official websites and license information for both systems.
         </p>
     </div>
+
+    <script>
+        // Modal popup functionality
+        const modal = document.getElementById("licenseModal");
+        const btn = document.getElementById("openLicenseBtn");
+        const closeBtn = document.getElementsByClassName("close-modal-btn")[0];
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
