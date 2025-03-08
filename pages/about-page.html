@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About UDUSI</title>
     <link rel="stylesheet" href="../css/about-page.css">
+    <link rel="stylesheet" href="../css/license-modal.css">
 </head>
 <body>
     <h1>About UDUSI</h1>
@@ -42,6 +43,7 @@
         </p>
         <p>
             <strong>License:</strong> UDUNITS2 is released under the <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause License</a>.
+            <button id="viewLicenseBtn" class="view-license-btn">View Full License</button>
         </p>
     </div>
 
@@ -58,5 +60,88 @@
             It includes links to official websites and license information for both systems.
         </p>
     </div>
+
+    <!-- License Modal -->
+    <div id="licenseModal" class="license-modal">
+        <div class="license-modal-content">
+            <span class="license-modal-close">&times;</span>
+            <h2>UDUNITS2 License</h2>
+            <div id="license-text-container" class="license-text">
+Copyright 2014 University Corporation for Atmospheric Research and contributors.
+All rights reserved.
+
+This software was developed by the Unidata Program Center of the
+University Corporation for Atmospheric Research (UCAR)
+&lt;http://www.unidata.ucar.edu&gt;.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+   1) Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2) Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+   3) Neither the names of the development group, the copyright holders, nor the
+      names of contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+   4) This license shall terminate automatically and you may no longer exercise
+      any of the rights granted to you by this license as of the date you
+      commence an action, including a cross-claim or counterclaim, against
+      the copyright holders or any contributor alleging that this software
+      infringes a patent. This termination provision shall not apply for an
+      action alleging patent infringement by combinations of this software with
+      other software or hardware.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE CONTRIBUTORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS WITH THE SOFTWARE.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the modal element
+            const modal = document.getElementById('licenseModal');
+            
+            // Get the button that opens the modal
+            const viewLicenseBtn = document.getElementById('viewLicenseBtn');
+            
+            // Get the <span> element that closes the modal
+            const closeBtn = document.querySelector('.license-modal-close');
+            
+            // When the user clicks the button, open the modal
+            if (viewLicenseBtn) {
+                viewLicenseBtn.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    // Add class to body to prevent scrolling when modal is open
+                    document.body.classList.add('modal-open');
+                });
+            }
+            
+            // When the user clicks on the close button, close the modal
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                    // Remove class from body to allow scrolling again
+                    document.body.classList.remove('modal-open');
+                });
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    // Remove class from body to allow scrolling again
+                    document.body.classList.remove('modal-open');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
