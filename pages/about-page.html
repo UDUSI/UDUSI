@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About UDUSI</title>
     <link rel="stylesheet" href="../css/about-page.css">
+    <link rel="stylesheet" href="../css/license-modal.css">
 </head>
 <body>
     <h1>About UDUSI</h1>
@@ -42,6 +43,7 @@
         </p>
         <p>
             <strong>License:</strong> UDUNITS2 is released under the <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause License</a>.
+            <button id="viewLicenseBtn" class="view-license-btn">View Full License</button>
         </p>
     </div>
 
@@ -58,5 +60,19 @@
             It includes links to official websites and license information for both systems.
         </p>
     </div>
+
+    <!-- License Modal -->
+    <div id="licenseModal" class="license-modal">
+        <div class="license-modal-content">
+            <span class="license-modal-close">&times;</span>
+            <h2>UDUNITS2 License</h2>
+            <div id="license-text-container" class="license-text">
+                Loading license text...
+            </div>
+        </div>
+    </div>
+
+    <!-- Include the modal JavaScript -->
+    <script src="../js/license-modal.js"></script>
 </body>
 </html>
