@@ -35,14 +35,14 @@
 
         .modal-content {
             background-color: #fff;
-            margin: 10% auto;
+            margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
+            width: 75%;
             max-width: 700px;
             border-radius: 5px;
             position: relative;
-            max-height: 70vh;
+            max-height: 85vh;
             overflow-y: auto;
         }
 
@@ -67,8 +67,9 @@
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 14px;
-            line-height: 1.5;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -80,9 +81,10 @@
     <div class="content-section">
         <h2>Project Overview</h2>
         <p>
-            UDUSI (UDUNITS + SI) is a project that combines the International System of Units (SI) with the UDUNITS2 XML database of unit descriptions. The project has two main aims:
+            UDUSI (UDUNITS + SI) is a project that combines the International System of Units (SI) with the UDUNITS2 XML database of unit descriptions.
+            The project has two main aims:
             (i) to provide a web-based overview of units available in the UDUNITS2 software package
-            (ii) to update the UDUNITS2 XML database with the 2019 SI definitions of units.
+            (ii) to update the UDUNITS2 XML database with the 2019 SI definitions of units. Changes to the UDUNITS2 C-code base are out of scope for UDUSI.
         </p>
     </div>
 
@@ -90,12 +92,13 @@
         <h2>About SI</h2>
         <p>
             The International System of Units (SI) is the modern form of the metric system and the world's most widely used system of measurement.
-            It is maintained by the International Bureau of Weights and Measures (BIPM) and is described in the SI Brochure.
-            <a href="https://www.bipm.org/en/measurement-units/" target="_blank">Visit the BIPM website</a> and the
-            <a href="https://si-digital-framework.org/" target="_blank">SI Digital Framework website</a>.
+            It is maintained by the International Bureau of Weights and Measures (BIPM) and is described by the
+            <a href="https://www.bipm.org/en/measurement-units/" target="_blank">BIPM website</a>, and in particular in the SI Brochure and related documents
+            (<a href="https://www.bipm.org/en/publications/si-brochure">download page</a>).
         </p>
         <p>
-            <strong>License:</strong> SI documentation is generally provided under the <a href="https://creativecommons.org/licenses/by/3.0/igo/" target="_blank">Creative Commons Attribution 3.0 IGO License</a>.
+            <strong>License:</strong> SI documentation is generally provided under the
+            <a href="https://creativecommons.org/licenses/by/3.0/igo/" target="_blank">Creative Commons Attribution 3.0 IGO License</a>.
         </p>
     </div>
 
@@ -107,8 +110,8 @@
             <a href="https://www.unidata.ucar.edu/software/udunits/" target="_blank">Visit the UDUNITS2 website</a>.
         </p>
         <p>
-            <strong>License:</strong> UDUNITS2 is released under the <a href="https://opensource.org/licenses/BSD-3-Clause" target="_blank">BSD 3-Clause License</a>.
-            <button class="modal-btn" id="openLicenseBtn">View Full License</button>
+            <strong>License:</strong> UDUNITS2 is released under a permissive license:</a>
+            <button class="modal-btn" id="openLicenseBtn">Full License</button>
         </p>
     </div>
 
