@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SI and UDUNITS2 units</title>
+    <title>UDUSI: SI and UDUNITS2 units</title>
     <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        /* Additional styles for the last updated info */
+        .last-updated {
+            margin-left: 10px;
+            font-style: italic;
+            color: #777;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .copyright-info {
+            flex: 1;
+        }
+    </style>
 </head>
 <body>
 
@@ -57,10 +77,16 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script src="js/last-updated.js"></script>
 
     <div class="footer">
         <div class="footer-content">
-            Copyright © 2025 &bull; Lars Bärring  &bull; All information on these webpages are made available under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a> Creative Commons Attribution 4.0 International License.
+            <div class="copyright-info">
+                Copyright © 2025 &bull; Lars Bärring  &bull; All information on these webpages are made available under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a> Creative Commons Attribution 4.0 International License.
+            </div>
+            <div id="last-updated-info" class="last-updated">
+                Last updated: Checking...
+            </div>
         </div>
     </div>
 
