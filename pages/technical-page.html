@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDUSI: Descriptive Page Title</title>
+    <title>UDUSI: UDUNITS2 Technical Requirements</title>
     <link rel="stylesheet" href="../css/descriptive-page.css">
     <!-- Optional: Include MathJax for mathematical formulas if needed -->
     <!--
@@ -22,28 +22,33 @@
 <body>
     <!-- Hidden provenance data that will be used by the main page -->
     <div id="provenance-data">
+        <h3></h3>
         <p>
             This page outline technical aspects of the XML files and their content. Last updated: 2025-03-19.
         </p>
     </div>
 
-    <h1 id="udusi-xml-files-and-udunits2-technical-requirements">UDUSI XML Files and UDUNITS2 Technical Requirements</h1>
-<p><i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended as a formal specification of the logical content of UDUNITS files.</i></p>
+<p><i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended as a formal specification of the logical content of UDUNITS2 files.</i></p>
 <h2 id="outline-of-the-xml-files">Outline of the XML Files</h2>
 <ul>
-<li><p>Units must be included in a well-defined order because their definitions are successively built upon previously defined units. This means that the SI Base Units must be defined first, followed by the SI Special Named Units, and so on. As a result, the SI Constants, which have SI Special Named Units, can only appear in the hierarchy after these have been defined despite the fact that they are used to define the SI Base Units.</p>
+<li>
+    <p>Units must be included in a well-defined order because their definitions are successively built upon previously defined units. This means that the SI Base Units must be defined first, followed by the SI Special Named Units, and so on. As a result, the SI Constants, which have SI Special Named Units, can only appear in the hierarchy after these have been defined despite the fact that they are used to define the SI Base Units.</p>
 </li>
-<li><p>When a new unit or unit alias is defined in the XML files, it connects to previously defined units via the <code>&lt;def&gt;....&lt;/def&gt;</code> element. SI base units are by definition not related to other units, which in the XML files is handled by replacing the <code>&lt;def&gt;....&lt;/def&gt;</code> element with the element <code>&lt;base/&gt;</code>.</p>
+<li>
+    <p>When a new unit or unit alias is defined in the XML files, it connects to previously defined units via the <code>&lt;def&gt;....&lt;/def&gt;</code> element. SI base units are by definition not related to other units, which in the XML files is handled by replacing the <code>&lt;def&gt;....&lt;/def&gt;</code> element with the element <code>&lt;base/&gt;</code>.</p>
 </li>
-<li><p>UDUNITS2 does not allow multiple “standard” units (as opposed to alias units) sharing the same basic definition. For example, the two SI Special Named Units <code>hertz</code> and <code>becquerel</code> share the same basic definition <code>1/s</code>. To resolve this, <code>becquerel</code> is designated as an <em>alias</em> to <code>hertz</code> in the XML file, despite the fact that they refer to totally different concepts and physical quantities. From a user perspective, this has little impact, except that UDUNITS2 allows conversion between the two units.</p>
+<li>
+    <p>UDUNITS2 does not allow multiple “standard” units (as opposed to alias units) sharing the same basic definition. For example, the two SI Special Named Units <code>hertz</code> and <code>becquerel</code> share the same basic definition <code>1/s</code>. To resolve this, <code>becquerel</code> is designated as an <em>alias</em> to <code>hertz</code> in the XML file, despite the fact that they refer to totally different concepts and physical quantities. From a user perspective, this has little impact, except that UDUNITS2 allows conversion between the two units.</p>
 </li>
 </ul>
 <h2 id="xml-files-available-to-download">XML Files Available to Download</h2>
 <p>There are two options for downloading XML files for use with the UDUNITS2 software package:</p>
 <ul>
-<li><p>Option 1 combines all information into one XML file, which would likely be preferable in many use cases.</p>
+<li>
+    <p>Option 1 combines all information into one XML file, which would likely be preferable in many use cases.</p>
 </li>
-<li><p>Option 2 keeps the information from different sources as separate XML files, which enables tracing the source of information.
+<li>
+    <p>Option 2 keeps the information from different sources as separate XML files, which enables tracing the source of information.
     These files are then referenced via XML <code>&lt;include&gt;</code> statements in the XML file used by UDUNITS2
     (similar to how it is handled in the original UDUNITS2 files). In this context, the different sources are SI and UDUNITS2 (see the table below).
     UDUSI provides some minor additions and adjustments which are kept in separate files, as indicated in the file names, or in the <code>unit_class</code> element
