@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    viewBox="0 0 900 450"
    font-family="monospace"
@@ -59,7 +58,7 @@
        class="node-text"
        id="text2">unit-system</text>
     <path
-       d="M 0,35 V 150"
+       d="M 0,35 V 130"
        class="connector"
        fill="none"
        id="path2" />
@@ -103,34 +102,22 @@
        d="M 0,110 H 20"
        class="connector"
        fill="none"
-       id="path6" />
-    <text
-       x="25"
-       y="115"
-       class="node-text"
-       id="text6">comment <tspan
-   class="new-element"
-   id="tspan6">(new)</tspan></text>
-    <path
-       d="M 0,130 H 20"
-       class="connector"
-       fill="none"
        id="path7" />
     <text
        x="25"
-       y="135"
+       y="115"
        class="special-node"
        id="text7">PREFIX <tspan
    class="note-text"
    id="tspan7">(r)</tspan></text>
     <path
-       d="M 0,150 H 20"
+       d="M 0,130 H 20"
        class="connector"
        fill="none"
        id="path8" />
     <text
        x="25"
-       y="155"
+       y="135"
        class="special-node"
        id="text8">UNIT <tspan
    class="note-text"
@@ -213,7 +200,7 @@
        class="node-text"
        id="text16">unit</text>
     <path
-       d="M 0,35 V 290"
+       d="M 0,35 V 310"
        class="connector"
        fill="none"
        id="path16" />
@@ -352,22 +339,34 @@
        d="M 0,270 H 20"
        class="connector"
        fill="none"
-       id="path31" />
+       id="path31-new" />
     <text
        x="25"
        y="275"
+       class="node-text"
+       id="text31-new">internal_note <tspan
+   class="new-element"
+   id="tspan31-new">(new)</tspan></text>
+    <path
+       d="M 0,290 H 20"
+       class="connector"
+       fill="none"
+       id="path31" />
+    <text
+       x="25"
+       y="295"
        class="node-text"
        id="text31">unit_class <tspan
    class="new-element"
    id="tspan31">(new)</tspan></text>
     <path
-       d="M 0,290 H 20"
+       d="M 0,310 H 20"
        class="connector"
        fill="none"
        id="path32" />
     <text
        x="25"
-       y="295"
+       y="315"
        class="node-text"
        id="text32">quantities <tspan
    class="new-element"

@@ -22,13 +22,13 @@
 <body>
     <!-- Hidden provenance data that will be used by the main page -->
     <div id="provenance-data">
-        <h3></h3>
         <p>
-            This page provides outline technical aspects of the XML files and thier content. Last updated: 2025-03-18.
+            This page outline technical aspects of the XML files and their content. Last updated: 2025-03-19.
         </p>
     </div>
 
     <h1 id="udusi-xml-files-and-udunits2-technical-requirements">UDUSI XML Files and UDUNITS2 Technical Requirements</h1>
+<p><i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended as a formal specification of the logical content of UDUNITS files.</i></p>
 <h2 id="outline-of-the-xml-files">Outline of the XML Files</h2>
 <ul>
 <li><p>Units must be included in a well-defined order because their definitions are successively built upon previously defined units. This means that the SI Base Units must be defined first, followed by the SI Special Named Units, and so on. As a result, the SI Constants, which have SI Special Named Units, can only appear in the hierarchy after these have been defined despite the fact that they are used to define the SI Base Units.</p>
@@ -43,7 +43,11 @@
 <ul>
 <li><p>Option 1 combines all information into one XML file, which would likely be preferable in many use cases.</p>
 </li>
-<li><p>Option 2 keeps the information from different sources as separate XML files, which enables tracing the source of information. These files are then referenced via XML <code>&lt;include&gt;</code> statements in the XML file used by UDUNITS2 (similar to how it is handled in the original UDUNITS2 files). In this context, the different sources are SI and UDUNITS2 (see the table below). UDUSI provides some minor additions and adjustments which are kept in separate files, as indicated in the file names. Here is a list of the files:</p>
+<li><p>Option 2 keeps the information from different sources as separate XML files, which enables tracing the source of information.
+    These files are then referenced via XML <code>&lt;include&gt;</code> statements in the XML file used by UDUNITS2
+    (similar to how it is handled in the original UDUNITS2 files). In this context, the different sources are SI and UDUNITS2 (see the table below).
+    UDUSI provides some minor additions and adjustments which are kept in separate files, as indicated in the file names, or in the <code>unit_class</code> element
+   ofthe XML file, and shown in the web pag listings. Here is a list of the files:</p>
 <table>
 <thead>
 <tr>
@@ -313,3 +317,29 @@
 <td>optional</td>
 </tr>
 </tbody></table>
+
+<h2 id="udunts2-rules-for-pluralization-of-units">UDUNTS2 rules for pluralization of units (preliminary)</h2>
+<p>For most units the XML files do not specify a plural variant of the name or symbol.
+    In these cases the following standard rules are applied by the UDUNITS2 software:</p>
+<p><strong>Basic Rules:</strong></p>
+<ul>
+<li>For a single character unit name, just append “s” (e.g., “m” -&gt; “ms”)</li>
+<li>For longer unit names, different rules apply based on the ending:<ul>
+<li>Words ending in “y”:<ul>
+<li>If the “y” is preceded by a vowel (a,e,i,o,u), just append “s”. Example: “ray” -&gt; “rays”.</li>
+<li>If the “y” is preceded by a consonant, replace “y” with “ies”. Example: “body” -&gt; “bodies”.</li>
+</ul>
+</li>
+<li>Words ending in certain patterns get “es”:<ul>
+<li>Words ending in “s”, “x”, or “z” get “es”. Examples: “box” -&gt; “boxes”, “gas” -&gt; “gases”.</li>
+<li>Words ending in “ch” or “sh” get “es”. Examples: “inch” -&gt; “inches”, “bush” -&gt; “bushes”</li>
+</ul>
+</li>
+<li>Default case:<ul>
+<li>For all other endings, just append “s”. Examples: “meter” -&gt; “meters”, “gram” -&gt; “grams”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</body>
