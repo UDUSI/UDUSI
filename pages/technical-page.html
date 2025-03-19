@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDUSI: Descriptive Page Title</title>
+    <title>UDUSI: Technical Details</title>
     <link rel="stylesheet" href="../css/descriptive-page.css">
     <!-- Optional: Include MathJax for mathematical formulas if needed -->
     <!--
@@ -22,13 +22,15 @@
 <body>
     <!-- Hidden provenance data that will be used by the main page -->
     <div id="provenance-data">
+        <h3></h3>
         <p>
             This page outline technical aspects of the XML files and their content. Last updated: 2025-03-19.
         </p>
     </div>
 
-    <h1 id="udusi-xml-files-and-udunits2-technical-requirements">UDUSI XML Files and UDUNITS2 Technical Requirements</h1>
-<p><i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended as a formal specification of the logical content of UDUNITS files.</i></p>
+    <h1 id="udunits2-technical-requirements">UDUNITS2 Technical Requirements</h1>
+
+<p><i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended as a formal specification of the logical content of UDUNITS2 files.</i></p>
 <h2 id="outline-of-the-xml-files">Outline of the XML Files</h2>
 <ul>
 <li><p>Units must be included in a well-defined order because their definitions are successively built upon previously defined units. This means that the SI Base Units must be defined first, followed by the SI Special Named Units, and so on. As a result, the SI Constants, which have SI Special Named Units, can only appear in the hierarchy after these have been defined despite the fact that they are used to define the SI Base Units.</p>
