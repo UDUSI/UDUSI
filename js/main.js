@@ -20,18 +20,13 @@ document.addEventListener('click', (e) => {
         provenancePanel.classList.remove('active');
     }
 });
-
 function updateSubtitle() {
     const iframe = document.getElementById('content-container');
     const subtitle = document.getElementById('page-subtitle');
 
     try {
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const pageTitle = iframeDoc.querySelector('title')?.textContent ||
-                        iframeDoc.querySelector('h1')?.textContent ||
-                        'Loading...';
-
-        // Update subtitle
+        const pageTitle = iframeDoc.querySelector('title')?.textContent || 'Loading...';
         subtitle.textContent = pageTitle;
 
         // Extract and update provenance information
@@ -42,16 +37,43 @@ function updateSubtitle() {
             provenanceText.innerHTML = 'No provenance information available for this page.';
         }
 
-        // Remove the title from the content if it exists
-        const contentTitle = iframeDoc.querySelector('h1');
-        if (contentTitle) {
-            contentTitle.style.display = 'none';
-        }
+        // We no longer need to hide the h1 since it won't exist
     } catch (e) {
         console.error('Error updating subtitle:', e);
         subtitle.textContent = 'Loading...';
     }
 }
+// function updateSubtitle() {
+//     const iframe = document.getElementById('content-container');
+//     const subtitle = document.getElementById('page-subtitle');
+
+//     try {
+//         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+//         const pageTitle = iframeDoc.querySelector('title')?.textContent ||
+//                         iframeDoc.querySelector('h1')?.textContent ||
+//                         'Loading...';
+
+//         // Update subtitle
+//         subtitle.textContent = pageTitle;
+
+//         // Extract and update provenance information
+//         const provenanceElement = iframeDoc.getElementById('provenance-data');
+//         if (provenanceElement) {
+//             provenanceText.innerHTML = provenanceElement.innerHTML;
+//         } else {
+//             provenanceText.innerHTML = 'No provenance information available for this page.';
+//         }
+
+//         // Remove the title from the content if it exists
+//         const contentTitle = iframeDoc.querySelector('h1');
+//         if (contentTitle) {
+//             contentTitle.style.display = 'none';
+//         }
+//     } catch (e) {
+//         console.error('Error updating subtitle:', e);
+//         subtitle.textContent = 'Loading...';
+//     }
+// }
 
 function loadContent(url) {
     const contentFrame = document.getElementById('content-container');
