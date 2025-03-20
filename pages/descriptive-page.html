@@ -33,12 +33,39 @@
     <p>In the files from the SI Digital Framework, the following unit categories are identified and used in UDUSI: <em>base</em> units, <em>special named</em> units, <em>non-SI</em> units, and a “helper category” for the non-SI unit <code>gram</code>. In addition, SI <em>constants</em> and SI <em>prefixes</em> are used. Similarly, UDUNITS2 identifies five categories: <em>prefixes</em>, <em>base</em> units, <em>derived</em> units, <em>accepted</em> units, and <em>common</em> units (reflected in the names of the XML files).</p>
     <h2 id="unit-categories-used-in-udusi">Unit categories used in UDUSI</h2>
     <ul>
-    <li>The seven <em><strong>SI Constants</strong></em> are added as separate entities (“units”), where the descriptions are taken directly from SI. In practice this means that the two pre-existing UDUNITS2 units <strong><code>avogadro_constant</code></strong> and <strong><code>e</code></strong> (elementary charge) are now directly related to their SI definitions.</li>
-    <li>The <em><strong>SI Prefixes</strong></em> include the recent additions <strong><code>quetta</code></strong>, <strong><code>ronna</code></strong>, <strong><code>quecto</code></strong>, <strong><code>ronto</code></strong>, thus spanning the interval from $10^{-30}$ to $10^{30}$. Moreover, UDUSI enables the two variant spellings <strong><code>deca</code></strong> and <strong><code>deka</code></strong> for $10^1$.</li>
-    <li>The seven <em><strong>SI Base Units</strong></em> are directly taken from the SI. In practice there are no changes in relation to standard UDUNITS2 files, except that the descriptive text is based on SI.</li>
-    <li>In addition to the seven SI base units there are 22 SI derived units that are designated as <em><strong>SI Special Named Units</strong></em>, including the two dimensionless derived units, the <strong><code>radian</code></strong> and the <strong><code>steradian</code></strong>. Because the two latter are now included in this group, the mathematical constant π (pi) also is included as a unit (constant) in this group.</li>
-    <li>Finally, SI currently acknowledges 14 <em><strong>Non-SI Units</strong></em> <em>accepted for use with the SI units</em>. This list has changed over time and several units that were included as “accepted units” by UDUNITS2 are not in the current SI list. In UDUSI they are thus moved to the “common” category. One notable example of this is the unit <em>knot</em> (nautical_mile / hour) that is no longer accepted for use with the SI. In the UDUSI web presentation the non-SI unit <strong><code>gram</code></strong> is included in this category, but it has its own XML file.</li>
-    <li>Remaining units are outside SI and are listed under the UDUNITS2 <em><strong>common</strong></em> category. This large category of approximately 220 units includes imperial units, US customary units, units related to the <em>cgs system</em>, and a range of specialized units.</li>
+        <li>
+            The seven <em><strong>SI Constants</strong></em> are added as separate entities (“units”), where the descriptions are taken directly from SI. In practice this means that the two pre-existing UDUNITS2 units <strong><code>avogadro_constant</code></strong> and <strong><code>e</code></strong> (elementary charge) are now directly related to their SI definitions.
+        </li>
+
+        <li>
+            The <em><strong>SI Prefixes</strong></em> include the recent additions <strong><code>quetta</code></strong>, <strong><code>ronna</code></strong>, <strong><code>quecto</code></strong>, <strong><code>ronto</code></strong>, thus spanning the interval from $10^{-30}$ to $10^{30}$. Moreover, UDUSI enables the two variant spellings <strong><code>deca</code></strong> and <strong><code>deka</code></strong> for $10^1$.
+        </li>
+
+        <li>
+            The seven <em><strong>SI Base Units</strong></em> are directly taken from the SI. In practice there are no changes in relation to standard UDUNITS2 files, except that the descriptive text is based on SI.
+        </li>
+
+        <li>
+            In addition to the seven SI base units there are 22 SI derived units that are designated as <em><strong>SI Special Named Units</strong></em>, including the two derived units, the <strong><code>radian</code></strong> and the <strong><code>steradian</code></strong>. Because the two latter are now included in this group, the mathematical constant π (pi) also is included as a unit (constant) in this group.
+        </li>
+
+        <li>
+            Finally, SI currently acknowledges 14 <em><strong>Non-SI Units</strong></em> <em>accepted for use with the SI units</em>. This list has changed over time:</li>
+            <ul>
+                <li>
+                    Several units that were included as “SI accepted units” by UDUNITS2 are not in the current SI list. In UDUSI they are thus moved to the “common” category. One notable example of this is the unit <em>knot</em> (nautical_mile / hour) that is no longer accepted for use with the SI.
+                </li>
+                <li>
+                    SI now includes the two logarithmic units <strong><code>bel</code></strong> and <strong><code>neper</code></strong> in this category. They are included in the UDUSI XML files as <code>dimensionless</code> units. <i>The UDUNITS2 support for manipulating these units is limited and not well tested.</i>
+                </li>
+                <li>
+                    In the UDUSI web presentation the non-SI unit <strong><code>gram</code></strong> is included in this category even though SI keeps it separate, and has its own XML file in UDUSI.</li>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Remaining units are outside SI and are listed under the UDUNITS2 <em><strong>common</strong></em> category. This large category of approximately 220 units includes imperial units, US customary units, units related to the <em>cgs system</em>, and a range of specialized units.
+        </li>
     </ul>
     <h3 id="udunits2-aliases-for-unit-names-and-symbols-and-deprecated-units-and-aliases">UDUNITS2 “aliases” for unit names and symbols, and deprecated units and aliases</h3>
     <p>One specific feature of UDUNITS2 is that in addition to the standardized unit names and symbols, variant spellings and symbols are allowed as <em>aliases</em>. For example, the quantity <em>thermodynamic temperature</em> has SI unit <strong><code>kelvin</code></strong> (<strong><code>K</code></strong>), and UDUNITS2 allows the following aliases: “degree_kelvin”, “degree_K”, “degreeK”, “deg_K”, “degK”, and the corresponding plural variants, as well as the symbol “°K”. While this may be convenient when dealing with legacy data, it also creates problems. Therefore SI is strict about only having one symbol for each unit, and expressly deprecates alternative acronyms and symbols.</p>
