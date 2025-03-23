@@ -10,12 +10,12 @@
         .modal-btn {
             background-color: #4a90e2;
             color: white;
-            padding: 4px 7px;
+            padding: 3px 6px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 14px;
-            margin-left: 10px;
+            margin-left: 8px;
         }
 
         .modal-btn:hover {
@@ -71,6 +71,22 @@
             line-height: 1.4;
             margin-bottom: 10px;
         }
+        
+        /* Additional styles for more compact layout */
+        .content-section h2 {
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .content-section p {
+            margin: 6px 0;
+        }
+        
+        .license-info {
+            display: flex;
+            align-items: center;
+            margin-top: 6px;
+        }
     </style>
 </head>
 <body>
@@ -89,10 +105,10 @@
     <div class="content-section">
         <h2>About the units webpages</h2>
         <p>
-            The units web pages provides information aobout the different unit categories (and SI Prefixes and SI Constants).
+            The units web pages provides information about the different unit categories (and SI Prefixes and SI Constants).
             In addition to what is included in the original UDUNITS2 XML files, links to the relevant SI Reference Point entry is given for units recognized by SI.
             For units having a symbol involving non-standard ASCII characters (e.g. ohm; Ω) the Unicode code point is displayed as a help text when pointing the mouse to the symbol.
-            Deprecated units, names and symbols (cf. Changes page) are show in grey tint.
+            Deprecated units, names and symbols (cf. Changes page) are shown in grey tint.
         </p>
     </div>
 
@@ -104,10 +120,10 @@
             <a href="https://www.bipm.org/en/measurement-units/" target="_blank">BIPM website</a>, and in particular in the SI Brochure and related documents
             (<a href="https://www.bipm.org/en/publications/si-brochure" target="_blank">download page</a>).
         </p>
-        <p>
+        <div class="license-info">
             <strong>License:</strong> SI documentation is generally provided under the
             <a href="https://creativecommons.org/licenses/by/3.0/igo/" target="_blank">Creative Commons Attribution 3.0 IGO License</a>.
-        </p>
+        </div>
     </div>
 
     <div class="content-section">
@@ -117,10 +133,10 @@
             It can parse formatted unit expressions, convert numeric values between compatible units, and arithmetically manipulate units.
             <a href="https://www.unidata.ucar.edu/software/udunits/" target="_blank">Visit the UDUNITS2 website</a>.
         </p>
-        <p>
-            <strong>License:</strong> UDUNITS2 is released under the UCAR license:</a>
+        <div class="license-info">
+            <strong>License:</strong> UDUNITS2 is released under the UCAR license:
             <button class="modal-btn" id="openLicenseBtn">View full License</button>
-        </p>
+        </div>
     </div>
 
     <div class="content-section">
