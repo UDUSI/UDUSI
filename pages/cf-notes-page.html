@@ -33,7 +33,7 @@
 <h3 id="overview">Overview</h3>
 <ul>
     <li>
-        <p>The CF Conventions <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#overview" target="_blank">states</a> that unit strings “…are recognized by UNIDATA’s UDUNITS package …”, which in practice means that the unit either has to be present in the XML files, or follow the UDUNITS2 <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar">grammar</a> for constructing unit strings from the units present in the XML files.</p>
+        <p>The CF Conventions <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#overview" targe="_blank">states</a> that unit strings “…are recognized by UNIDATA’s UDUNITS package …”, which in practice means that the unit either has to be present in the XML files, or follow the UDUNITS2 <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar">grammar</a> for constructing unit strings from the units present in the XML files.</p>
     </li>
     <li>
         <p>The UDUSI XML files are designed to be drop-in replacements for the original UDUNITS2 XML files.</p>
@@ -62,8 +62,8 @@
     <li>
         <p>Instead the UDUNITS2 software implements the following heuristic rules:</p>
         <ul>
-            <li>If the unit string represents a simple temperature unit, i.e. only **`K`**, **`°R`**, **`°C`**, **`°F`**, or any of their accepted aliases, then any unit conversion <em>will</em> take the scale offset into account. That is, it is assumed that it is a temperature quantity.</li>
-            <li>If the unit string represents a compound unit, e.g. **`K s-1`**, **`°C m-1`**, then any temperature conversion <em>will not</em> take the scale offset into account. That is, it is assumed that the temperature component of the quantity represents a temperature difference.</li>
+            <li>If the unit string represents a simple temperature unit, i.e. only <code><strong>K</code></strong>, <code><strong>°R</code></strong>, <code><strong>°C</code></strong>, <code><strong>`°F</code></strong>, or any of their accepted aliases, then any unit conversion <em>will</em> take the scale offset into account. That is, it is assumed that it is a temperature quantity.</li>
+            <li>If the unit string represents a compound unit, e.g. <code><strong>K s-1</code></strong>, <code><strong>°C m-1</code></strong>, then any temperature conversion <em>will not</em> take the scale offset into account. That is, it is assumed that the temperature component of the quantity represents a temperature difference.</li>
         </ul>
     </li>
     <li>
@@ -71,9 +71,9 @@
     </li>
     <li><p>In the CF Standard Name Table there a few standard name where <em>UDUNITS2's rules do not apply</em>. These are:</p>
 <ul>
-<li><code>square_of_air_temperature</code> and <code>square_of_sea_surface_temperature</code>, which both have canonical unit **`K2`**.</li>
-<li><code>product_of_air_temperature_and_specific_humidity</code> that has canonical unit **`K`**, even though the unit should be considered a compound unit, which according to SI may be shortened as follows: $kg/kg * K  =  1 * K  =  K$.</li>
-<li><code>integral_wrt_depth_of_product_of_conservative_temperature_and_sea_water_density</code> and <code>integral_wrt_depth_of_product_of_potential_temperature_and_sea_water_density</code>, which both have canonical unit **`kg degree_C m-2`**. This particular case is discusses in Section 3.1.2 of the conventions text.</li>
+<li><code>square_of_air_temperature</code> and <code>square_of_sea_surface_temperature</code>, which both have canonical unit <strong><code>K2</code></strong>.</li>
+<li><code>product_of_air_temperature_and_specific_humidity</code> that has canonical unit <strong><code>K</code></strong>, even though the unit should be considered a compound unit, which according to SI may be shortened as follows: $kg/kg * K  =  1 * K  =  K$.</li>
+<li><code>integral_wrt_depth_of_product_of_conservative_temperature_and_sea_water_density</code> and <code>integral_wrt_depth_of_product_of_potential_temperature_and_sea_water_density</code>, which both have canonical unit <strong><code>kg degree_C m-2</code></strong>. This particular case is discusses in Section 3.1.2 of the conventions text.</li>
 </ul>
 <p>  In these five cases it is a temperature quantity (and not a temperature difference quantity) that contributes to form the quantity represented by the standard names and its canonical unit.</p>
 </li>
