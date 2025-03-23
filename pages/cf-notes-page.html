@@ -62,6 +62,7 @@
     <li>
         <p>Instead the UDUNITS2 software implements the following heuristic rules:</p>
         <ul>
+
             <li>If the unit string represents a simple temperature unit, i.e. only <code><strong>K</code></strong>, <code><strong>°R</code></strong>, <code><strong>°C</code></strong>, <code><strong>°F</code></strong>, or any of their accepted aliases, then any unit conversion <em>will</em> take the scale offset into account. That is, it is assumed that it is a temperature quantity.</li>
             <li>If the unit string represents a compound unit, e.g. <code><strong>K s-1</code></strong>, <code><strong>°C m-1</code></strong>, then any temperature conversion <em>will not</em> take the scale offset into account. That is, it is assumed that the temperature component of the quantity represents a temperature difference.</li>
         </ul>
