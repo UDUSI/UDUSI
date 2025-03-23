@@ -62,7 +62,8 @@
     <li>
         <p>Instead the UDUNITS2 software implements the following heuristic rules:</p>
         <ul>
-            <li>If the unit string represents a simple temperature unit, i.e. only <code><strong>K</code></strong>, <code><strong>°R</code></strong>, <code><strong>°C</code></strong>, <code><strong>`°F</code></strong>, or any of their accepted aliases, then any unit conversion <em>will</em> take the scale offset into account. That is, it is assumed that it is a temperature quantity.</li>
+
+            <li>If the unit string represents a simple temperature unit, i.e. only <code><strong>K</code></strong>, <code><strong>°R</code></strong>, <code><strong>°C</code></strong>, <code><strong>°F</code></strong>, or any of their accepted aliases, then any unit conversion <em>will</em> take the scale offset into account. That is, it is assumed that it is a temperature quantity.</li>
             <li>If the unit string represents a compound unit, e.g. <code><strong>K s-1</code></strong>, <code><strong>°C m-1</code></strong>, then any temperature conversion <em>will not</em> take the scale offset into account. That is, it is assumed that the temperature component of the quantity represents a temperature difference.</li>
         </ul>
     </li>
@@ -77,7 +78,7 @@
 </ul>
 <p>  In these five cases it is a temperature quantity (and not a temperature difference quantity) that contributes to form the quantity represented by the standard names and its canonical unit.</p>
 </li>
-<li><p>Another important situation when <em>UDUNITS2's do not apply</em> is if the temperature quantity has undergone statistical processing that involves forming differences, e.g. standard error or standard deviation.</p>
+<li><p>Another important situation when <em>UDUNITS2's rules do not apply</em> is if the temperature quantity has undergone statistical processing that involves forming differences, e.g. standard error or standard deviation.</p>
 </li>
 </ul>
 <h3 id="time-units">Time units</h3>
