@@ -22,33 +22,13 @@ h2 {
     margin-bottom: 10px; /* Reduced from 15px */
 }
 
-.warning-headline {
-    color: #d63031;
-    text-align: center;
-    margin: 8px 0; /* Reduced from 10px */
-    font-weight: bold;
-}
-
-h2.warning-headline {
-    font-size: 1.5em;
-    border-bottom: 2px dashed #d63031;
-    padding-bottom: 6px; /* Reduced from 8px */
-    margin-bottom: 8px; /* Reduced from 10px */
-    color: #d63031;
-}
-
-h3.warning-headline {
-    font-size: 1.2em;
-    margin-bottom: 15px; /* Reduced from 20px */
-    color: #d63031;
-}
-
 .content-section {
     margin-bottom: 20px; /* Reduced from 30px */
     background-color: #f9f9f9;
     padding: 15px; /* Reduced from 20px */
     border-radius: 5px;
     border-left: 4px solid #4a90e2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Empty contact section should take less space */
