@@ -4,11 +4,13 @@ const provenancePanel = document.getElementById('provenance-panel');
 const closeBtn = document.querySelector('.close-btn');
 const provenanceText = document.getElementById('provenance-text');
 
-provenanceBtn.addEventListener('click', () => {
+provenanceBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default button behavior
     provenancePanel.classList.add('active');
 });
 
-closeBtn.addEventListener('click', () => {
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default button behavior
     provenancePanel.classList.remove('active');
 });
 
@@ -20,6 +22,7 @@ document.addEventListener('click', (e) => {
         provenancePanel.classList.remove('active');
     }
 });
+
 function updateSubtitle() {
     const iframe = document.getElementById('content-container');
     const subtitle = document.getElementById('page-subtitle');
@@ -36,71 +39,121 @@ function updateSubtitle() {
         } else {
             provenanceText.innerHTML = 'No provenance information available for this page.';
         }
-
-        // We no longer need to hide the h1 since it won't exist
     } catch (e) {
         console.error('Error updating subtitle:', e);
         subtitle.textContent = 'Loading...';
     }
 }
-// function updateSubtitle() {
-//     const iframe = document.getElementById('content-container');
-//     const subtitle = document.getElementById('page-subtitle');
 
-//     try {
-//         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-//         const pageTitle = iframeDoc.querySelector('title')?.textContent ||
-//                         iframeDoc.querySelector('h1')?.textContent ||
-//                         'Loading...';
+// Add visual feedback for focus
+document.addEventListener('DOMContentLoaded', () => {
+    const navButtons = document.querySelectorAll('.nav-list button');
+    
+    // Add focus and blur handlers for visual feedback
+    navButtons.forEach(button => {
+        button.addEventListener('focus', () => {
+            button.style.outline = '2px solid #4a90e2';
+        });
+        
+        button.addEventListener('blur', () => {
+            button.style.outline = 'none';
+        });
+    });
+});
 
-//         // Update subtitle
-//         subtitle.textContent = pageTitle;
-
-//         // Extract and update provenance information
-//         const provenanceElement = iframeDoc.getElementById('provenance-data');
-//         if (provenanceElement) {
-//             provenanceText.innerHTML = provenanceElement.innerHTML;
-//         } else {
-//             provenanceText.innerHTML = 'No provenance information available for this page.';
-//         }
-
-//         // Remove the title from the content if it exists
-//         const contentTitle = iframeDoc.querySelector('h1');
-//         if (contentTitle) {
-//             contentTitle.style.display = 'none';
-//         }
-//     } catch (e) {
-//         console.error('Error updating subtitle:', e);
-//         subtitle.textContent = 'Loading...';
-//     }
-// }
-
+// Improved content loading function with better error handling
 function loadContent(url) {
     const contentFrame = document.getElementById('content-container');
     const loading = document.querySelector('.loading');
 
+    // Show loading indicator
     loading.classList.add('active');
-
+    
+    // Set a loading timeout
+    const loadingTimeout = setTimeout(() => {
+        if (loading.classList.contains('active')) {
+            console.warn('Content loading is taking longer than expected');
+        }
+    }, 3000);
+    
+    // Set onload handler
     contentFrame.onload = () => {
+        clearTimeout(loadingTimeout);
         loading.classList.remove('active');
         updateSubtitle();
     };
+    
+    // Set onerror handler
+    contentFrame.onerror = (error) => {
+        clearTimeout(loadingTimeout);
+        loading.classList.remove('active');
+        console.error('Error loading content:', error);
+        contentFrame.srcdoc = `<html><body><h1>Error Loading Content</h1><p>Failed to load: ${url}</p></body></html>`;
+    };
 
-    contentFrame.src = url;
+    // Load the content
+    try {
+        contentFrame.src = url;
+    } catch (error) {
+        clearTimeout(loadingTimeout);
+        loading.classList.remove('active');
+        console.error('Error setting iframe src:', error);
+    }
 }
 
-document.querySelector('.nav-list').addEventListener('click', (e) => {
-    if (e.target.tagName === 'BUTTON') {
-        document.querySelectorAll('.nav-list button').forEach(btn =>
-            btn.classList.remove('active'));
-        e.target.classList.add('active');
-        loadContent(e.target.dataset.page);
-    }
-});
-
+// Improved click handler for navigation
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation event delegation with improved handling
+    const navList = document.querySelector('.nav-list');
+    
+    navList.addEventListener('click', (e) => {
+        // Find the button element (could be the button itself or a child like <i>)
+        let target = e.target;
+        while (target !== navList && target.tagName !== 'BUTTON') {
+            target = target.parentElement;
+        }
+        
+        if (target !== navList && target.tagName === 'BUTTON') {
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-list button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            target.classList.add('active');
+            
+            // Load content
+            if (target.dataset.page) {
+                loadContent(target.dataset.page);
+                
+                // For debugging specifically the CF notes issue
+                if (target.id === 'cf-notes-btn') {
+                    console.log('CF Notes button clicked, loading:', target.dataset.page);
+                }
+            }
+        }
+    });
+
+    // Load the default page
     const defaultPage = document.querySelector('.nav-list button.active');
     if (defaultPage) {
         loadContent(defaultPage.dataset.page);
+    }
+    
+    // Add specific handling for the problematic CF notes button
+    const cfNotesBtn = document.getElementById('cf-notes-btn');
+    if (cfNotesBtn) {
+        cfNotesBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Stop event bubbling
+            
+            // Explicit handling of this specific button
+            document.querySelectorAll('.nav-list button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            cfNotesBtn.classList.add('active');
+            loadContent(cfNotesBtn.dataset.page);
+            console.log('CF Notes direct handler called');
+        });
     }
 });
