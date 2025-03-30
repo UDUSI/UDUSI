@@ -29,7 +29,7 @@
     </div>
 
     <div>
-        <h2 id="the-cf-climate-and-forecast-conventions-and-udunits2">The CF (Climate and Forecast) Conventions and UDUNITS2</h2>
+        <h1 id="the-cf-climate-and-forecast-conventions-and-udunits2">The CF (Climate and Forecast) Conventions and UDUNITS2</h1>
         <p>
             This page provides guidance on using UDUNITS2 with the <a href="https://cfconventions.org/" target="_blank">Climate and Forecast (CF) Conventions</a>,
             highlighting compatibility aspects and addressing special considerations.
@@ -42,7 +42,8 @@
             <li>
                 The CF Conventions <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#overview" target="_blank">states</a>
                 that unit strings “…are recognized by UNIDATA’s UDUNITS2 package …”, which in practice means that the unit either has to be present
-                in the XML files, or follow the UDUNITS2 <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar" target="_blank">grammar</a>
+                in the XML files, or follow the UDUNITS2 Library Documentation
+                <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar" target="_blank">Section 6.2 Grammar</a>
                 for constructing unit strings from the units present in the XML files.
             </li>
             <li>
@@ -138,7 +139,7 @@
         <p>In netCDF files and CF Conventions, <em>temporal</em> data variables are classified into two types:
             <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate">time coordinate variables</a>,
             which define the time axis, and data variables, which store values of a quantity related to time, such as duration, periodicity, or age.
-            For time coordinate variables, the <a href="">canonical unit</a> must be in the form
+            For time coordinate variables, the canonical unit must be in the form
             <strong><code>&lt;unit&gt; since &lt;reference_time&gt;</code></strong>, whereas data variables typically use units in the
             form <strong><code>&lt;unit&gt;</code></strong> (though there are a few cases where the former form is required).
         </p>
@@ -166,17 +167,18 @@
         </p>
         <p>
             In the first form of time units, the phrase <strong><code>since</code></strong> identifies the unit as a time coordinate unit.
-            While the <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar">UDUNITS2 grammar</a> allows for several
+            While the UDUNITS2 Library Documentation
+            <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar" target="_blank">Section 6.2 Grammar</a> allows for several
             alternative phrases to “since”, these alternatives are known to be incompatible with popular software tools. Consequently, it is
             strongly recommended to use “since” and avoid the alternatives.
         </p>
         <p>
             The <strong><code>&lt;reference_time&gt;</code></strong> connects the values in the time coordinate variable to an epoch, i.e. a specific
             point in time on the time axis. Again, the UDUNITS2 grammar allows several alternative ways to write this, but it is advisable to follow the
-            <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate-units">CF Conventions format</a>
+            <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate-units" target="_blank">CF Conventions format</a>
             <strong><em>y-m-d [H:M:S [Z]]</em></strong>, where <strong><em>[…​]</em></strong> indicates an optional element. Note that both UDUNITS2
-            and the CF Conventions replace omitted parts with "00". For example if thereference time is give as "<strong><em>2020-01-01</em></strong>"
-            it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>". Some other standards interpret omitted parts as an idication of
+            and the CF Conventions replace omitted parts with "0" or "00" depending on context. For example if the reference time is give as "<strong><em>2020-01-01</em></strong>"
+            it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>". According to some other standards omitted parts is indicate 
             limited precision.
         </p>
         <p>
