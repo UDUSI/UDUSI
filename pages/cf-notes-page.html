@@ -32,7 +32,7 @@
         <h1 id="the-cf-climate-and-forecast-conventions-and-udunits2">The CF (Climate and Forecast) Conventions and UDUNITS2</h1>
         <p>
             This page provides guidance on using UDUNITS2 with the <a href="https://cfconventions.org/" target="_blank">Climate and Forecast (CF) Conventions</a>,
-            highlighting compatibility aspects and addressing special considerations.
+            highlighting caspects of ompatibility and addressing special considerations.
         </p>
     </div>
 
@@ -40,9 +40,9 @@
         <h2 id="overview">Overview</h2>
         <ul>
             <li>
-                The CF Conventions <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#overview" target="_blank">states</a>
-                that unit strings “…are recognized by UNIDATA’s UDUNITS2 package …”, which in practice means that the unit either has to be present
-                in the XML files, or follow the UDUNITS2 Library Documentation
+                The CF Conventions <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#overview" target="_blank">state</a>
+                that unit strings “…are recognized by Unidata’s UDUNITS2 package …”, which in practice means that the unit must either be present
+                in the XML files or follow the UDUNITS2 Library Documentation
                 <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar" target="_blank">Section 6.2 Grammar</a>
                 for constructing unit strings from the units present in the XML files.
             </li>
@@ -50,8 +50,8 @@
                 The UDUSI XML files are designed to be drop-in replacements for the original UDUNITS2 XML files.
             </li>
             <li>
-                For all unit strings available in the CF Standard Name Table version 89, the results have been compared between using UDUNTS2 with the
-                original XML files and with the UDUSI XML files. The results are identical, with one exception, see next point.
+                For all unit strings available in version 89 of the CF Standard Name Table, the results have been compared between using UDUNTS2 with the
+                original XML files and with the UDUSI XML files. The results are identical, with one exception—see next point.
             </li>
         </ul>
     </div>
@@ -59,16 +59,16 @@
         <h2 id="logarithmic-units">Logarithmic units</h2>
         <ul>
             <li>
-                The CF Standard Name Tables do in fact contain one unit that is <em>not</em> available in the UDUNITS2 standard XML files,
-                namely <strong><code>dB</code></strong> (decibel). However, as SI now includes <strong><code>bel</code></strong> among the
+                The CF Standard Name Tables do contain one unit that is <em>not</em> available in the UDUNITS2 standard XML files,
+                namely <strong><code>dB</code></strong> (decibel). However, as SI now includes the <strong><code>bel</code></strong> among the
                 “non-SI units accepted for use with SI” it is included in the UDUSI XML files. This means that, with UDUSI XML files, UDUNITS2
                 is able to correctly parse the unit string “dB” as consisting of the prefix <strong><code>deci</code></strong> and the
-                unit <strong><code>bel</code></strong>, thus resolving an exception that goes back all the way to Table version 2 from 2006.
+                unit <strong><code>bel</code></strong>, thus resolving an exception that dates back Table version 2 from 2006.
             </li>
             <li>
-                It must be stressed that UDUNITS2 support for handling the two logarithmic units <strong><code>bel</code></strong> and
-                <strong><code>neper</code></strong> is very limited. Any other unit manipulation than what is shown in the previous point
-                (i.e. identifying “dB” as valid unit string) has not been tested and should be expected to fail or give unreliable
+                It must be emphasised that UDUNITS2 support for handling the two logarithmic units <strong><code>bel</code></strong> and
+                <strong><code>neper</code></strong> is very limited. Any unit manipulation beyond what is described in the previous point
+                (i.e. identifying “dB” as valid unit string composed of a prefix symbol and a unit symbol) has not been tested and should be expected to fail or give unreliable
                 results until proven otherwise.
             </li>
             <li>
@@ -85,12 +85,12 @@
         <h2 id="temperature-units">Temperature units</h2>
         <ul>
             <li>
-                An important aspect of UDUNITS2 is that the package does not include functionality to explicitly distinguish between a units
-                referring to a temperature quantity and a unit referring to a temperature difference quantity. This is essential when converting
+                An important aspect of UDUNITS2 is that the package does not include functionality to explicitly distinguish between a unit
+                referring to a temperature quantity and a unit referring to a temperature difference quantity. This distinction is essential when converting
                 between thermodynamic temperature units (<strong><code>K</code></strong> and <strong><code>°R</code></strong>), and
-                conventional units (<strong><code>°C</code></strong> and <strong><code>°F</code></strong>). This distinction was made explicit in
+                conventional units (<strong><code>°C</code></strong> and <strong><code>°F</code></strong>). This was made explicit in
                 <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.11/cf-conventions.html#temperature-units" target="_blank">
-                    CF-1.11 section 3.1.2</a>.
+                    CF-1.11, Section 3.1.2</a>.
             </li>
             <li>
                 Instead the UDUNITS2 software implements the following heuristic rules:
@@ -106,29 +106,29 @@
                 </ul>
             </li>
             <li>
-                In general, these rules are applicable and give the desired results. There are however some exceptions detailed in the two points below.
+                In general, these rules are applicable and give the desired results. However, there are some exceptions detailed, in the two points below.
             </li>
             <li>
-                In the CF Standard Name Table there a few standard name where <em>UDUNITS2's rules do not apply</em>. These are:
+                In the CF Standard Name Table there are a few standard name where <em>UDUNITS2's rules do not apply</em>. These are:
                 <ul>
                     <li><code>square_of_air_temperature</code> and <code>square_of_sea_surface_temperature</code>, which both have canonical unit
                         <strong><code>K2</code></strong>.
                     </li>
                     <li><code>product_of_air_temperature_and_specific_humidity</code> that has canonical unit <strong><code>K</code></strong>, even though the unit
-                        should be considered a compound unit, which according to SI may be shortened as follows: $kg/kg * K  =  1 * K  =  K$.
+                        should be considered a compound unit. According to SI, it may be shortened as follows: $kg/kg * K  =  1 * K  =  K$.
                     </li>
                     <li><code>integral_wrt_depth_of_product_of_conservative_temperature_and_sea_water_density</code> and
                         <code>integral_wrt_depth_of_product_of_potential_temperature_and_sea_water_density</code>, which both have canonical unit
-                        <strong><code>kg degree_C m-2</code></strong>. This particular case is discusses in Section 3.1.2 of the conventions text.
+                        <strong><code>kg degree_C m-2</code></strong>. This particular case is discussed in Section 3.1.2 of the conventions text.
                     </li>
                 </ul>
                 <p>
                     In these five cases it is a temperature quantity (and not a temperature difference quantity) that contributes to form the quantity represented
-                    by the standard names and its canonical unit.
+                    by the standard names and their canonical unit.
                 </p>
             </li>
             <li>
-                Another important situation where <em>UDUNITS2's rules do not apply</em> is when the temperature quantity has undergone statistical processing
+                Another important situation where UDUNITS2's rules do not apply is when the temperature quantity has undergone statistical processing
                 that involves forming differences, e.g. standard error or standard deviation.
             </li>
         </ul>
@@ -150,9 +150,9 @@
         </p>
         <ul>
             <li>
-                <strong><code>year</code></strong>: Refers is the
+                <strong><code>year</code></strong>: Refers to the
                 <a href="https://en.wikipedia.org/wiki/Tropical_year#Mean_tropical_year_current_value">mean <em>tropical year</em></a>,
-                defined as the the average period from one vernal equinox to the next, which in UDUNITS2 is defined as
+                defined as the average period from one vernal equinox to the next, which in UDUNITS2 is defined as
                 $31\ 556\ 925.9747$ s, or $365.242\ 198\ 781\ 25$ days.
             </li>
             <li>
@@ -161,9 +161,9 @@
         </ul>
         <p>
             Neither of these units align with the conventional meaning of “year” and “month” and should therefore be avoided. In terms of Units of Measure,
-            the conventional “year” and “month” refer to the Gregorian calendar and are not useful due to their varying lengths. Cunsequently,
+            the conventional “year” and “month” refer to the Gregorian calendar, which is unsuitable due to its varying lengths. Cunsequently,
             it is neither possible nor meaningful to define a unit “gregorian_year” or “gregorian_month”. Additionally, UDUNITS2 defines several other
-            units of time, but these have limited and specialized use.
+            units of time, but these have limited and specialised use.
         </p>
         <p>
             In the first form of time units, the phrase <strong><code>since</code></strong> identifies the unit as a time coordinate unit.
@@ -178,13 +178,13 @@
             <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate-units" target="_blank">CF Conventions format</a>
             <strong><em>y-m-d [H:M:S [Z]]</em></strong>, where <strong><em>[…​]</em></strong> indicates an optional element. Note that both UDUNITS2
             and the CF Conventions replace omitted parts with "0" or "00" depending on context. For example if the reference time is give as "<strong><em>2020-01-01</em></strong>"
-            it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>". According to some other standards omitted parts is indicate 
+            it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>". According to some other standards, omitted parts is indicate
             limited precision.
         </p>
         <p>
-            The UDUNITS2 software tools allow conversion between between different time units, both with respect to the <strong><code>&lt;unit&gt;</code></strong>
+            The UDUNITS2 software tools allow conversion between different time units, both with respect to the <strong><code>&lt;unit&gt;</code></strong>
             part and the <strong><code>&lt;reference_time&gt;</code></strong> part. While the former is often useful, the latter is limited to
-            conversion between date or datetime in the Gregorian calendar. The other calendars defined in the CF Conventions are not supported.
+            conversion between dates or datetimes in the Gregorian calendar. Other calendars defined in the CF Conventions are not supported.
         </p>
     </div>
 </body>
