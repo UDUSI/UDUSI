@@ -30,7 +30,7 @@
     <div>
         <p>
             <i>Note that the information below has been gathered through practical experimentation with the UDUNITS2 XML files. It is not intended
-                as a formal specification of the logical content of UDUNITS2 files.</i>
+                to serve as a formal specification of the logical content of UDUNITS2 files.</i>
         </p>
     </div>
 
@@ -41,18 +41,18 @@
                 Units must be included in a well-defined order because their definitions are successively built upon previously defined units.
                 This means that the SI Base Units must be defined first, followed by the SI Special Named Units, and so on. As a result,
                 the SI Constants, which have SI Special Named Units, can only appear in the hierarchy after these have been defined despite
-                the fact that they are used to define the SI Base Units.
+                bein gused to define the SI Base Units.
             </li>
             <li>
                 When a new unit or unit alias is defined in the XML files, it connects to previously defined units via the
                 <code>&lt;def&gt;....&lt;/def&gt;</code> element. SI base units are by definition not related to other units, which in the
-                XML files is handled by replacing the <code>&lt;def&gt;....&lt;/def&gt;</code> element with the element <code>&lt;base/&gt;</code>.
+                XML files is handled by replacing the <code>&lt;def&gt;....&lt;/def&gt;</code> element with the <code>&lt;base/&gt;</code> element.
             </li>
             <li>
-                UDUNITS2 does not allow multiple “standard” units (as opposed to alias units) sharing the same basic definition. For example,
+                UDUNITS2 does not allow multiple “standard” units (as opposed to alias units) that share the same basic definition. For example,
                 the two SI Special Named Units <code>hertz</code> and <code>becquerel</code> share the same basic definition <code>1/s</code>.
-                To resolve this, <code>becquerel</code> is designated as an <em>alias</em> to <code>hertz</code> in the XML file, despite the
-                fact that they refer to totally different concepts and physical quantities. From a user perspective, this has little impact,
+                To resolve this, <code>becquerel</code> is designated as an <em>alias</em> for <code>hertz</code> in the XML file, despite the
+                fact that they refer to entirely different concepts and physical quantities. From a user perspective, this has little impact,
                 except that UDUNITS2 allows conversion between the two units.
             </li>
         </ul>
@@ -63,15 +63,15 @@
         <p>There are two UDUSI options for downloading XML files for use with the UDUNITS2 software package:</p>
         <ul>
             <li>
-                Option 1 combines all information into one XML file, which would likely be preferable in many use cases.
+                Option 1 combines all information into one XML file, which is likely preferable in many use cases.
             </li>
             <li>
                 <p>
                     Option 2 keeps the information from different sources as separate XML files, which enables tracing the source of information.
                     These files are then referenced via XML <code>&lt;include&gt;</code> statements in the XML file used by UDUNITS2
-                    (similar to how it is handled in the original UDUNITS2 files). In this context, the different sources are SI and UDUNITS2
+                    (similar to their handling in the original UDUNITS2 files). In this context, the different sources are SI and UDUNITS2
                     (see the table below). UDUSI provides some minor additions and adjustments which are kept in separate files, as indicated
-                    in the file names, or in the <code>unit_class</code> element of the XML file, and shown in the web pag listings.
+                    by the file names, or within the <code>unit_class</code> element of the XML file, and areshown in the web page listings.
                     Here is a list of the files:
                 </p>
                 <table>
@@ -369,9 +369,9 @@
         </table>
     </div>
     <div class="content-section">
-        <h2 id="udunts2-rules-for-pluralization-of-units">UDUNTS2 rules for pluralization of units (preliminary)</h2>
+        <h2 id="udunts2-rules-for-pluralisation-of-units">UDUNTS2 rules for pluralisation of units (preliminary)</h2>
         <p>
-            For most units the XML files do not specify a plural variant of the name or symbol.
+            For most units, the XML files do not specify a plural variant of the name or symbol.
             In these cases the following standard rules are applied by the UDUNITS2 software:
         </p>
         <p>
@@ -379,7 +379,7 @@
             <strong>Basic Rules:</strong></p>
         <ul>
             <li>
-                For a single character unit name, just append “s” (e.g., “m” -&gt; “ms”)
+                For a single character unit name, just append “s” (e.g. “m” -&gt; “ms”).
             </li>
             <li>
                 For longer unit names, different rules apply based on the ending:
@@ -387,10 +387,10 @@
                     <li>Words ending in “y”:
                         <ul>
                             <li>
-                                If the “y” is preceded by a vowel (a,e,i,o,u), just append “s”. Example: “ray” -&gt; “rays”.
+                                If the “y” is preceded by a vowel (a,e,i,o,u), just append “s”. Examples: “ray” -&gt; “rays”.
                             </li>
                             <li>
-                                If the “y” is preceded by a consonant, replace “y” with “ies”. Example: “body” -&gt; “bodies”.
+                                If the “y” is preceded by a consonant, replace “y” with “ies”. Examples: “body” -&gt; “bodies”.
                             </li>
                         </ul>
                     </li>
@@ -400,14 +400,14 @@
                                 Words ending in “s”, “x”, or “z” get “es”. Examples: “box” -&gt; “boxes”, “gas” -&gt; “gases”.
                             </li>
                             <li>
-                                Words ending in “ch” or “sh” get “es”. Examples: “inch” -&gt; “inches”, “bush” -&gt; “bushes”
+                                Words ending in “ch” or “sh” get “es”. Examples: “inch” -&gt; “inches”, “bush” -&gt; “bushes”.
                             </li>
                         </ul>
                     </li>
                     <li>Default case:
                         <ul>
                             <li>
-                                For all other endings, just append “s”. Examples: “meter” -&gt; “meters”, “gram” -&gt; “grams”
+                                For all other endings, just append “s”. Examples: “meter” -&gt; “meters”, “gram” -&gt; “grams”.
                             </li>
                         </ul>
                     </li>
