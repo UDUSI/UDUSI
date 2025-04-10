@@ -24,7 +24,7 @@
     <div id="provenance-data">
         <h3></h3>
         <p>
-            This page provides some comments regarding using UDUNITS2 with the CF Conventions. Last updated: 2025-03-21.
+            This page provides some comments regarding using UDUNITS2 with the CF Conventions. Last updated: 2025-04-10.
         </p>
     </div>
 
@@ -32,7 +32,7 @@
         <h1 id="the-cf-climate-and-forecast-conventions-and-udunits2">The CF (Climate and Forecast) Conventions and UDUNITS2</h1>
         <p>
             This page provides guidance on using UDUNITS2 with the <a href="https://cfconventions.org/" target="_blank">Climate and Forecast (CF) Conventions</a>,
-            highlighting caspects of ompatibility and addressing special considerations.
+            highlighting aspects of compatibility and addressing special considerations.
         </p>
     </div>
 
@@ -87,10 +87,9 @@
             <li>
                 An important aspect of UDUNITS2 is that the package does not include functionality to explicitly distinguish between a unit
                 referring to a temperature quantity and a unit referring to a temperature difference quantity. This distinction is essential when converting
-                between thermodynamic temperature units (<strong><code>K</code></strong> and <strong><code>°R</code></strong>), and
-                conventional units (<strong><code>°C</code></strong> and <strong><code>°F</code></strong>). This was made explicit in
-                <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.11/cf-conventions.html#temperature-units" target="_blank">
-                    CF-1.11, Section 3.1.2</a>.
+                between thermodynamic temperature units (<strong><code>K</code></strong> and <strong><code>°R</code></strong>), and conventional
+                units (<strong><code>°C</code></strong> and <strong><code>°F</code></strong>). Since version 1.11 of the CF Conventions this was made
+                explicit in <a href="https://cfconventions.org/cf-conventions/cf-conventions.html#temperature-units" target="_blank">Section 3.1.2</a>.
             </li>
             <li>
                 Instead the UDUNITS2 software implements the following heuristic rules:
@@ -109,23 +108,23 @@
                 In general, these rules are applicable and give the desired results. However, there are some exceptions detailed, in the two points below.
             </li>
             <li>
-                In the CF Standard Name Table there are a few standard name where <em>UDUNITS2's rules do not apply</em>. These are:
+                In the CF Standard Name Table there are a few standard names where <em>UDUNITS2's rules do not apply</em>. These are:
                 <ul>
                     <li><code>square_of_air_temperature</code> and <code>square_of_sea_surface_temperature</code>, which both have canonical unit
-                        <strong><code>K2</code></strong>.
+                        <strong><code>K2</code></strong>, which is a compound units. But these two standard names represents the square of a temperature,
+                        and not a squared temperature difference.
                     </li>
-                    <li><code>product_of_air_temperature_and_specific_humidity</code> that has canonical unit <strong><code>K</code></strong>, even though the unit
-                        should be considered a compound unit. According to SI, it may be shortened as follows: $kg/kg * K  =  1 * K  =  K$.
+                    <li><code>product_of_air_temperature_and_specific_humidity</code> that has canonical unit <strong><code>K</code></strong>, even though
+                        the unit should be considered a compound unit. According to SI, it may be shortened as follows: <strong><code>kg/kg K</code></strong>
+                        =  <strong><code>1 K</code></strong>  =  <strong><code>K</code></strong>. However, this potential misinterpretation can be avoided
+                        if the unit simplification is not done by explicitly using the canonical compound unit <strong><code>kg/kg K</code></strong>,
+                        which is acceptable by UDUNITS2, CF and SI.
                     </li>
                     <li><code>integral_wrt_depth_of_product_of_conservative_temperature_and_sea_water_density</code> and
                         <code>integral_wrt_depth_of_product_of_potential_temperature_and_sea_water_density</code>, which both have canonical unit
                         <strong><code>kg degree_C m-2</code></strong>. This particular case is discussed in Section 3.1.2 of the conventions text.
                     </li>
                 </ul>
-                <p>
-                    In these five cases it is a temperature quantity (and not a temperature difference quantity) that contributes to form the quantity represented
-                    by the standard names and their canonical unit.
-                </p>
             </li>
             <li>
                 Another important situation where UDUNITS2's rules do not apply is when the temperature quantity has undergone statistical processing
@@ -161,7 +160,7 @@
         </ul>
         <p>
             Neither of these units align with the conventional meaning of “year” and “month” and should therefore be avoided. In terms of Units of Measure,
-            the conventional “year” and “month” refer to the Gregorian calendar, which is unsuitable due to its varying lengths. Cunsequently,
+            the conventional “year” and “month” refer to the Gregorian calendar, which is unsuitable due to its varying lengths. Consequently,
             it is neither possible nor meaningful to define a unit “gregorian_year” or “gregorian_month”. Additionally, UDUNITS2 defines several other
             units of time, but these have limited and specialised use.
         </p>
@@ -170,21 +169,22 @@
             While the UDUNITS2 Library Documentation
             <a href="https://docs.unidata.ucar.edu/udunits/current/udunits2lib.html#Grammar" target="_blank">Section 6.2 Grammar</a> allows for several
             alternative phrases to “since”, these alternatives are known to be incompatible with popular software tools. Consequently, it is
-            strongly recommended to use “since” and avoid the alternatives.
+            strongly recommended to use <strong><code>since</code></strong> and avoid the alternatives.
         </p>
         <p>
-            The <strong><code>&lt;reference_time&gt;</code></strong> connects the values in the time coordinate variable to an epoch, i.e. a specific
+            The <strong><code>&lt;reference_time&gt;</code></strong> connects the values in the time coordinate variable to an epoch, i.e., a specific
             point in time on the time axis. Again, the UDUNITS2 grammar allows several alternative ways to write this, but it is advisable to follow the
-            <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate-units" target="_blank">CF Conventions format</a>
-            <strong><em>y-m-d [H:M:S [Z]]</em></strong>, where <strong><em>[…​]</em></strong> indicates an optional element. Note that both UDUNITS2
-            and the CF Conventions replace omitted parts with "0" or "00" depending on context. For example if the reference time is give as "<strong><em>2020-01-01</em></strong>"
-            it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>". According to some other standards, omitted parts is indicate
-            limited precision.
+            <a href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html#time-coordinate-units" target="_blank">
+            CF Conventions format</a>; <strong><em>y-m-d [H:M:S [Z]]</em></strong>, where <strong><em>[…​]</em></strong> indicates an optional element.
+            Note that both UDUNITS2 and the CF Conventions replace omitted parts with "0" or "00", depending on context. For example if the reference
+            time is given as "<strong><em>2020-01-01</em></strong>" it is understood to mean "<strong><em>2020-01-01 00:00:00 00</em></strong>".
+            According to some other standards, omission of parts "from the right end" indicates limited precision.
         </p>
         <p>
             The UDUNITS2 software tools allow conversion between different time units, both with respect to the <strong><code>&lt;unit&gt;</code></strong>
             part and the <strong><code>&lt;reference_time&gt;</code></strong> part. While the former is often useful, the latter is limited to
-            conversion between dates or datetimes in the Gregorian calendar. Other calendars defined in the CF Conventions are not supported.
+            conversion between dates or datetimes after 1582-10-15 0:0:0 in the standard calendar, that is, the Gregorian part of th estandard calendar.
+            Other calendars defined in the CF Conventions are not supported.
         </p>
     </div>
 </body>
