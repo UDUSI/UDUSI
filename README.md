@@ -1,7 +1,7 @@
-# UDUSI = UDUNITS2 + SI
+# UDUSI = UDUNITS + SI units of measure
 
-This is a legacy repository for the UDUSI webpages that now redirects to [**udusi.github.io**](https://udusi.github.io).
+This is a legacy repository for the **UDUSI website** that now redirects to https://udusi.github.io, which gives information about units of measure (UoM).
 
-Head over to [https://udusi.github.io/](https://udusi.github.io/) to explore what the UDUNITS2 database of Units of Measure (UoM) contains after it has been updated with the 2019 updated SI (International System of Units) definitions.
+Head over to the **UDUSI website** (https://udusi.github.io/) to explore what units information is available.
 
-If you want to report an issue or make a suggestion or comment regarding the website, please do that by opening an issue over at [https://github.com/UDUSI/udusi.github.io](https://github.com/UDUSI/udusi.github.io)
+If you want to ask a question or make a comment about the UDUSI website, then open a new issue [here](https://github.com/UDUSI/udusi.github.io/issues) .
